@@ -30,12 +30,15 @@ class GoalKeeper {
     switch (selectedMove) {
       case "left":
         goalKeeper.style.left = "465px";
+        goalKeeper.setAttribute("src", "./images/guardLeft.webp");
         break;
       case "right":
         goalKeeper.style.left = "865px";
+        goalKeeper.setAttribute("src", "./images/guardRight.webp");
         break;
       case "center":
         goalKeeper.style.left = "665px";
+        goalKeeper.setAttribute("src", "./images/goalkeeper-idle.png");
         break;
     }
   }

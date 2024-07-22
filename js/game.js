@@ -15,7 +15,7 @@ class Game {
     this.height = 800;
     this.width = 1440;
     this.selectedDirection = "center";
-    this.attempts = 3;
+    this.attempts = 5;
     this.score = 0;
 
     this.ball = new Ball(this.gameScreen, "./images/ball.webp");
