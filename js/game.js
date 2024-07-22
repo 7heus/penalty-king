@@ -17,6 +17,7 @@ class Game {
     this.selectedDirection = "center";
     this.attempts = 5;
     this.score = 0;
+    this.isShooting = false;
 
     this.ball = new Ball(this.gameScreen, "./images/ball.webp");
 
@@ -71,7 +72,7 @@ class Game {
   }
 
   shoot() {
-    this.goalKeeper.move();
+    if (this.isShooting) this.goalKeeper.move();
 
     this.#checkScore();
     setTimeout(() => this.ball.create(), 2000);
