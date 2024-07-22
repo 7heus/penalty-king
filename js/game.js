@@ -5,6 +5,7 @@ class Game {
     this.attemptsCounter = document.querySelector("#attempts-counter");
     this.scoreCounter = document.querySelector("#score-counter");
     this.gameIntro = document.getElementById("game-intro");
+    this.gameEnd = document.getElementById("game-end");
 
     this.goalKeeper = new GoalKeeper(
       this.gameScreen,
@@ -38,15 +39,27 @@ class Game {
     this.ball.create();
   }
 
+  endGame() {
+    this.gameScreen.style.display = "none";
+    this.gameEnd.style.display = "block";
+  }
+
   #checkScore() {
+    if (this.attempts == 0) {
+      this.endGame();
+      return;
+    }
     const goalKeeper = document.querySelector(".goalkeeper");
     const ball = document.querySelector(".football");
     if (goalKeeper.style.left == ball.style.left) {
-      attempts--;
-      this.ball.removeBall();
+      this.attempts--;
+      console.log(this.attempts);
+      ball.remove();
     } else {
-      score++;
-      this.ball.removeBall();
+      this.score++;
+      ball.remove();
+      this.goalMessage();
+      console.log("score");
     }
   }
 
@@ -56,6 +69,9 @@ class Game {
 
   shoot(selectedDirection) {
     this.goalKeeper.move();
+
+    this.#checkScore();
+    this.ball.create();
   }
 
   goalMessage() {
