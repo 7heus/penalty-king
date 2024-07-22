@@ -1,37 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <link rel="stylesheet" href="./styles/styles.css"
-        <title>Penalty King</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./styles/styles.css"
+  </head>
+  <body>
     <main>
-        <!-- #game-intro is initially shown on the game start screen -->
-        <div id="game-intro">
-          <img src="./images/game_logo.webp" alt="" class="logo-img" />
-          <br />
-          <button id="start-button">Let's KICKOUT!!!</button>
-          <p>
-            Use the left, right and up arrows to control the direction of the shooter and ball direction.
-          </p>
-          <p>Use spacebar for shooting the ball</p>
-          <img src="./images/arrows.png" alt="" class="arrows-img" />
-        </div>
+      <!-- #game-intro is initially shown on the game start screen -->
+      <div id="game-intro">
+        <img src="./images/game_logo.webp" alt="" class="logo-img" />
+        <br />
+        <button id="start-button">Let's KICKOUT!!!</button>
+        <p>
+          Use the left, right and up arrows to control the direction of the
+          shooter and ball direction.
+        </p>
+        <p>Use spacebar for shooting the ball</p>
+        <img src="./images/arrows.png" alt="" class="arrows-img" />
+      </div>
 
-        <div id="game-container">
-          <!-- #game-screen is initially hidden using CSS style display: none -->
-          <div id="game-screen">
-            <div id="penalties-scoreboard">
-              <div id="attempts-counter"></div>
-              <div id="score-counter"></div>
-            </div>
+      <div id="game-container">
+        <!-- #game-screen is initially hidden using CSS style display: none -->
+        <div id="game-screen">
+          <div id="penalties-scoreboard">
+            <div id="attempts-counter"></div>
+            <div id="score-counter"></div>
           </div>
         </div>
-  
-         <!-- #game-end is initially hidden using CSS style display: none -->
+      </div>
+
+      <!-- #game-end is initially hidden using CSS style display: none -->
       <div id="game-end">
         <img src="./images/arrows.png" alt="" class="logo-img" />
         <h1>Penalties Over</h1>
@@ -42,6 +42,5 @@
 
     <script src="./js/game.js"></script>
     <script src="./js/script.js"></script>
-
-</body>
+  </body>
 </html>
