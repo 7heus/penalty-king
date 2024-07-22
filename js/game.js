@@ -72,10 +72,15 @@ class Game {
   }
 
   shoot() {
-    if (this.isShooting) this.goalKeeper.move();
+    if (this.isShooting) return;
+    this.isShooting = true;
+    this.goalKeeper.move();
 
     this.#checkScore();
-    setTimeout(() => this.ball.create(), 2000);
+    setTimeout(() => {
+      this.ball.create();
+      this.isShooting = false;
+    }, 2000);
   }
 
   goalMessage() {
