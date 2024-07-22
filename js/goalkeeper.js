@@ -41,5 +41,10 @@ class GoalKeeper {
         goalKeeper.setAttribute("src", "./images/goalkeeper-idle.png");
         break;
     }
+
+    setTimeout(() => {
+      goalKeeper.style.left = "665px";
+      goalKeeper.setAttribute("src", "./images/goalkeeper-idle.png");
+    }, 1500);
   }
 }

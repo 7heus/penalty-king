@@ -46,7 +46,9 @@ class Game {
 
   #checkScore() {
     if (this.attempts == 0) {
-      this.endGame();
+      setTimeout(() => {
+        this.endGame();
+      }, 2000);
       return;
     }
     const goalKeeper = document.querySelector(".goalkeeper");
@@ -71,7 +73,7 @@ class Game {
     this.goalKeeper.move();
 
     this.#checkScore();
-    this.ball.create();
+    setTimeout(() => this.ball.create(), 1500);
   }
 
   goalMessage() {
