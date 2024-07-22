@@ -3,20 +3,40 @@ class GoalKeeper {
     this.gameScreen = gameScreen;
     this.imgSrc = imgSrc;
 
-    this.width = 100;
-    this.height = 120;
+    this.width = 120;
+    this.height = 220;
   }
 
   create() {
     const goalKeeper = document.createElement("img");
     goalKeeper.setAttribute("src", this.imgSrc);
     goalKeeper.setAttribute("class", "goalkeeper");
-    goalKeeper.style.height = this.height;
-    goalKeeper.style.width = this.width;
+    goalKeeper.style.height = `${this.height}px`;
+    goalKeeper.style.width = `${this.width}px`;
     goalKeeper.style.position = "absolute";
-    goalKeeper.style.top = "100px";
-    goalKeeper.style.left = "370px";
+    goalKeeper.style.scale = "100%";
+    goalKeeper.style.top = "300px";
+    goalKeeper.style.left = "665px";
 
     this.gameScreen.appendChild(goalKeeper);
+  }
+
+  move() {
+    const goalKeeper = document.querySelector(".goalkeeper");
+    const possibleMoves = ["center", "left", "right"];
+
+    const rand = Math.floor(Math.random() * possibleMoves.length);
+    let selectedMove = possibleMoves[rand];
+    switch (selectedMove) {
+      case "left":
+        goalKeeper.style.left = "465px";
+        break;
+      case "right":
+        goalKeeper.style.left = "865px";
+        break;
+      case "center":
+        goalKeeper.style.left = "665px";
+        break;
+    }
   }
 }

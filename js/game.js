@@ -12,7 +12,10 @@ class Game {
     );
 
     this.height = 800;
-    this.width = 1024;
+    this.width = 1440;
+    this.selectedDirection = "center";
+    this.attempts = 3;
+    this.score = 0;
 
     this.ball = new Ball(this.gameScreen, "./images/ball.webp");
 
@@ -32,5 +35,26 @@ class Game {
     this.gameScreen.style.display = "block";
 
     this.goalKeeper.create();
+    this.ball.create();
+  }
+
+  #checkScore() {
+    const goalKeeper = document.querySelector(".goalkeeper");
+    const ball = document.querySelector(".football");
+    if (goalKeeper.style.left == ball.style.left) {
+      attempts--;
+      this.ball.removeBall();
+    } else {
+      score++;
+      this.ball.removeBall();
+    }
+  }
+
+  changeDirection() {
+    this.ball.move(this.selectedDirection);
+  }
+
+  shoot(selectedDirection) {
+    this.goalKeeper.move();
   }
 }
