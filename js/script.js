@@ -3,11 +3,8 @@ window.onload = function () {
   const gameIntro = document.getElementById("game-intro");
   const gameScreen = document.getElementById("game-screen");
   const gameEnd = document.getElementById("game-end");
-<<<<<<< Updated upstream
-=======
   const restartBtn = document.getElementById("restart-button");
 
->>>>>>> Stashed changes
   const game = new Game();
   let ambienceSound = game.createSound("./audio/ambience.wav");
 
