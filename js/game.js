@@ -33,4 +33,12 @@ class Game {
 
     this.goalKeeper.create();
   }
+
+  goalMessage() {
+    const element = document.getElementById("celebration");
+    element.style.display = "block";
+    setTimeout(() => {
+      element.style.display = "none";
+    }, 2000);
+  }
 }
