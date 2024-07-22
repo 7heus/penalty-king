@@ -18,6 +18,7 @@ class Game {
     this.attempts = 5;
     this.score = 0;
     this.isShooting = false;
+    this.scoreboard = new Scoreboard();
 
     this.ball = new Ball(this.gameScreen, "./images/ball.webp");
 
@@ -30,6 +31,7 @@ class Game {
   }
 
   start() {
+    this.scoreboard.init(this.score, this.attempts);
     this.gameScreen.style.width = `${this.width}px`;
     this.gameScreen.style.height = `${this.height}px`;
 
@@ -52,6 +54,7 @@ class Game {
       this.attempts--;
       this.missMessage();
       ball.remove();
+      this.scoreboard.setAttempts(this.attempts);
       if (this.attempts == 0) {
         setTimeout(() => {
           this.endGame();
@@ -61,6 +64,7 @@ class Game {
       console.log(this.attempts);
     } else {
       this.score++;
+      this.scoreboard.setScore(this.score);
       ball.remove();
       this.goalMessage();
       console.log("score");
