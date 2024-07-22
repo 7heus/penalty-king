@@ -5,8 +5,8 @@ class Ball {
     this.direction;
     this.gameScreen = gameScreen;
 
-    this.width = 50;
-    this.height = 50;
+    this.width = 100;
+    this.height = 100;
   }
 
   createBall() {
@@ -16,6 +16,7 @@ class Ball {
     ball.style.height = `${this.height}px`;
     ball.setAttribute("class", "football");
     ball.style.scale = "100%";
+    ball.style.position = "absolute";
 
     this.gameScreen.appendChild(ball);
   }

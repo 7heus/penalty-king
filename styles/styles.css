@@ -22,6 +22,11 @@ body {
   position: relative;
   background-image: url("../images/ballcourt.webp");
   background-size: cover;
+  background-position-x: center;
+}
+
+.flip-vertically {
+  transform: scaleY(-1);
 }
 
 @keyframes slide {
