@@ -29,7 +29,6 @@ class Ball {
 
   move(selectedDirection) {
     const ball = document.querySelector(".football");
-    let scaling = parseInt(ball.style.scale.slice(0, ball.style.scale.length - 1)); // prettier-ignore
     switch (selectedDirection) {
       case "center":
         ball.style.left = "665px";
