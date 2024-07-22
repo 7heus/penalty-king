@@ -67,7 +67,7 @@ class Game {
     this.ball.move(this.selectedDirection);
   }
 
-  shoot(selectedDirection) {
+  shoot() {
     this.goalKeeper.move();
 
     this.#checkScore();
@@ -76,6 +76,7 @@ class Game {
 
   goalMessage() {
     const element = document.getElementById("celebration");
+    this.gameScreen.appendChild(element);
     element.style.display = "block";
     setTimeout(() => {
       element.style.display = "none";

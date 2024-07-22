@@ -28,17 +28,17 @@ body {
 #celebration {
   display: none;
   position: absolute;
-  top: 50%;
+  top: 1%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 9999;
   background: linear-gradient(45deg, #ff0066, #ffcc00);
   color: white;
-  font-size: 15vw;
-  padding: 1vw 2vw;
-  border-radius: 20px;
+  font-size: 5vw;
+  padding: 0.5vw 1vw;
+  border-radius: 10px;
   text-align: center;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
   animation: pulse 1.5s infinite;
   pointer-events: none;
 }
