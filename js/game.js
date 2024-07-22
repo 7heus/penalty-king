@@ -21,13 +21,6 @@ class Game {
     this.scoreboard = new Scoreboard();
 
     this.ball = new Ball(this.gameScreen, "./images/ball.webp");
-
-    this.refresh;
-    this.refreshRate = Math.floor(1000 / 30); //30 fps
-  }
-
-  shoot(direction) {
-    this.ball.move(direction);
   }
 
   start() {
@@ -65,7 +58,7 @@ class Game {
     } else {
       this.score++;
       this.scoreboard.setScore(this.score);
-      ball.remove();
+      setTimeout(ball.remove(), 1000);
       this.goalMessage();
       console.log("score");
     }
@@ -79,6 +72,8 @@ class Game {
     if (this.isShooting) return;
     this.isShooting = true;
     this.goalKeeper.move();
+    const ball = document.getElementById("football");
+    console.log(this.ball);
 
     this.#checkScore();
     setTimeout(() => {
