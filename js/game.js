@@ -39,6 +39,22 @@ class Game {
     this.ball.create();
   }
 
+  createSound(src) {
+    this.sound = document.createElement("audio");
+    this.sound.src = src;
+    this.sound.setAttribute("preload", "auto");
+    this.sound.setAttribute("controls", "loop");
+    this.sound.style.display = "none";
+    document.body.appendChild(this.sound);
+    this.play = function () {
+      this.sound.play();
+    };
+    this.stop = function () {
+      this.sound.pause();
+    };
+    return this.sound;
+  }
+
   endGame() {
     this.gameScreen.style.display = "none";
     this.gameEnd.style.display = "block";
