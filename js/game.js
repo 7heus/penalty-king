@@ -45,18 +45,19 @@ class Game {
   }
 
   #checkScore() {
-    if (this.attempts == 0) {
-      setTimeout(() => {
-        this.endGame();
-      }, 2000);
-      return;
-    }
     const goalKeeper = document.querySelector(".goalkeeper");
     const ball = document.querySelector(".football");
     if (goalKeeper.style.left == ball.style.left) {
       this.attempts--;
-      console.log(this.attempts);
+      this.missMessage();
       ball.remove();
+      if (this.attempts == 0) {
+        setTimeout(() => {
+          this.endGame();
+        }, 2000);
+        return;
+      }
+      console.log(this.attempts);
     } else {
       this.score++;
       ball.remove();
@@ -73,11 +74,20 @@ class Game {
     this.goalKeeper.move();
 
     this.#checkScore();
-    setTimeout(() => this.ball.create(), 1500);
+    setTimeout(() => this.ball.create(), 2000);
   }
 
   goalMessage() {
     const element = document.getElementById("celebration");
+    this.gameScreen.appendChild(element);
+    element.style.display = "block";
+    setTimeout(() => {
+      element.style.display = "none";
+    }, 2000);
+  }
+
+  missMessage() {
+    const element = document.getElementById("missed");
     this.gameScreen.appendChild(element);
     element.style.display = "block";
     setTimeout(() => {

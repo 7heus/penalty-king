@@ -45,6 +45,6 @@ class GoalKeeper {
     setTimeout(() => {
       goalKeeper.style.left = "665px";
       goalKeeper.setAttribute("src", "./images/goalkeeper-idle.png");
-    }, 1500);
+    }, 2000);
   }
 }
