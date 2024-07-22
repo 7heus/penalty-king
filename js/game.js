@@ -57,4 +57,12 @@ class Game {
   shoot(selectedDirection) {
     this.goalKeeper.move();
   }
+
+  goalMessage() {
+    const element = document.getElementById("celebration");
+    element.style.display = "block";
+    setTimeout(() => {
+      element.style.display = "none";
+    }, 2000);
+  }
 }
