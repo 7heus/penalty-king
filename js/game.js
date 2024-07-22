@@ -72,7 +72,6 @@ class Game {
     if (this.isShooting) return;
     this.isShooting = true;
     this.goalKeeper.move();
-    const ball = document.getElementById("football");
     console.log(this.ball);
 
     this.#checkScore();
