@@ -20,9 +20,8 @@ body {
   padding: 20px 0px;
   overflow: hidden;
   position: relative;
-  background-image: url(...);
+  background-image: url("../images/ballcourt.webp");
   background-size: cover;
-  animation: slide 5s linear infinite;
 }
 
 @keyframes slide {
