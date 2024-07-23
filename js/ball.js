@@ -41,6 +41,9 @@ class Ball {
         const currentTop = parseInt(
           ball.style.top.slice(0, ball.style.top.length - 2)
         );
+        if (currentTop !== maxTop) {
+          ball.style.top = `${currentTop + 1}px`;
+        }
       }, 50);
     }
   }

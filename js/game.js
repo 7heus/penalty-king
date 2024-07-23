@@ -45,8 +45,12 @@ class Game {
     const ball = document.querySelector(".football");
     if (goalKeeper.style.left == ball.style.left) {
       this.attempts--;
-      this.missMessage();
-      ball.remove();
+      setTimeout(() => {
+        this.missMessage();
+      }, 500);
+      setTimeout(() => {
+        ball.remove();
+      }, 2000);
       this.scoreboard.setAttempts(this.attempts);
       if (this.attempts == 0) {
         setTimeout(() => {
@@ -58,8 +62,12 @@ class Game {
     } else {
       this.score++;
       this.scoreboard.setScore(this.score);
-      setTimeout(ball.remove(), 1000);
-      this.goalMessage();
+      setTimeout(() => {
+        ball.remove();
+      }, 2000);
+      setTimeout(() => {
+        this.goalMessage();
+      }, 500);
       console.log("score");
     }
   }
@@ -72,6 +80,7 @@ class Game {
     if (this.isShooting) return;
     this.isShooting = true;
     this.goalKeeper.move();
+    document.querySelector(".football").style.top = "300px";
     console.log(this.ball);
 
     this.#checkScore();
@@ -87,7 +96,7 @@ class Game {
     element.style.display = "block";
     setTimeout(() => {
       element.style.display = "none";
-    }, 2000);
+    }, 1500);
   }
 
   missMessage() {
@@ -96,6 +105,6 @@ class Game {
     element.style.display = "block";
     setTimeout(() => {
       element.style.display = "none";
-    }, 2000);
+    }, 1500);
   }
 }
