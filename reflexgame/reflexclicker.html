@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reflex Tracker</title>
+    <link rel="stylesheet" href="./styles/reflexstyles.css" />
+  </head>
+  <body>
+    <div id="intro-screen">
+      <h1>Reflex Tracker</h1>
+      <p>
+        Test your reflexes and tracking skills by following the orb on the
+        screen using your mouse. Click the Start button to begin!
+      </p>
+      <button id="start-button">Start Game</button>
+    </div>
+    <div id="game-container" style="display: none">
+      <div id="game-area"></div>
+    </div>
+    <div id="end-screen" style="display: none">
+      <h1>Game Over!</h1>
+      <p>Score: ??? Time: ???</p>
+      <button id="restart-button">Restart Game</button>
+    </div>
+
+    <script src="./js/orb.js"></script>
+    <script src="./js/game.js"></script>
+    <script src="./js/script.js"></script>
+  </body>
+</html>
