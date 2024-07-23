@@ -76,21 +76,35 @@ class Ball {
   animate(pos) {
     const ball = document.querySelector(".football");
     let interval;
-    let maxTimeMs = 1000;
-    let deg = 0;
-    const maxTop = 650;
+    let maxTimeMs = 2000;
+    const distanceLeft = 465;
+    const distanceRight = 865;
+    const maxTop = 400;
 
     if (pos === "center") {
       interval = setInterval(() => {
+        const currentTop = parseInt(ball.style.top.slice(0, ball.style.top.length - 2)) // prettier-ignore
+        if (maxTimeMs === 0) clearInterval(interval);
+        if(currentTop !== maxTop) ball.style.top = `${currentTop - 10}px`; // prettier-ignore
+      }, 10);
+    } else if (pos === "left") {
+      interval = setInterval(() => {
         if (maxTimeMs === 0) clearInterval(interval);
         maxTimeMs -= 50;
-        const currentTop = parseInt(
-          ball.style.top.slice(0, ball.style.top.length - 2)
-        );
-        if (currentTop !== maxTop) {
-          ball.style.top = `${currentTop + 1}px`;
-        }
-      }, 50);
+        const currentTop = parseInt(ball.style.top.slice(0, ball.style.top.length - 2)) // prettier-ignore
+        const currentLeft = parseInt(ball.style.left.slice(0, ball.style.left.length - 2)); // prettier-ignore
+        if (currentLeft !== distanceLeft) ball.style.left = `${currentLeft - 8}px`; // prettier-ignore
+        if(currentTop !== maxTop) ball.style.top = `${currentTop - 10}px`; // prettier-ignore
+      }, 10);
+    } else if (pos === "right") {
+      interval = setInterval(() => {
+        if (maxTimeMs === 0) clearInterval(interval);
+        maxTimeMs -= 50;
+        const currentLeft = parseInt(ball.style.left.slice(0, ball.style.left.length - 2)); // prettier-ignore
+        const currentTop = parseInt(ball.style.top.slice(0, ball.style.top.length - 2)) // prettier-ignore
+        if (currentLeft !== distanceRight) ball.style.left = `${currentLeft + 8}px`; // prettier-ignore
+        if(currentTop !== maxTop) ball.style.top = `${currentTop - 10}px`; // prettier-ignore
+      }, 10);
     }
   }
 

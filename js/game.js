@@ -125,7 +125,8 @@ class Game {
     if (this.isShooting) return;
     this.isShooting = true;
     this.goalKeeper.move();
-    document.querySelector(".football").style.top = "300px";
+
+    this.ball.animate(this.selectedDirection);
     console.log(this.ball);
 
     this.#checkScore();
@@ -133,6 +134,7 @@ class Game {
       this.ball.create();
       this.isShooting = false;
     }, 2000);
+    this.selectedDirection = "center";
   }
 
   goalMessage() {
