@@ -21,7 +21,7 @@ class GoalKeeper {
     this.gameScreen.appendChild(goalKeeper);
   }
 
-  move() {
+  guard() {
     const goalKeeper = document.querySelector(".goalkeeper");
     const possibleMoves = [
       "center",
@@ -37,6 +37,12 @@ class GoalKeeper {
 
     const rand = Math.floor(Math.random() * possibleMoves.length);
     let selectedMove = possibleMoves[rand];
+
+    this.move(selectedMove);
+  }
+
+  move(selectedMove) {
+    const goalKeeper = document.querySelector(".goalkeeper");
     switch (selectedMove) {
       case "left":
         goalKeeper.style.left = "465px";
@@ -51,7 +57,6 @@ class GoalKeeper {
         goalKeeper.setAttribute("src", "./images/goalkeeper-idle.png");
         break;
     }
-
     setTimeout(() => {
       goalKeeper.style.left = "665px";
       goalKeeper.setAttribute("src", "./images/goalkeeper-idle.png");

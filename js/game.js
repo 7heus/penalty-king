@@ -20,6 +20,8 @@ class Game {
     this.score = 0;
     this.isShooting = false;
     this.scoreboard = new Scoreboard();
+    this.lastShot = "";
+    this.sameShots = 0;
 
     this.ball = new Ball(this.gameScreen, "./images/ball.webp");
   }
@@ -98,8 +100,24 @@ class Game {
 
   shoot() {
     if (this.isShooting) return;
+    if (this.lastShot === this.selectedDirection) this.sameShots++;
+    else this.sameShots = 0;
+
+    if (this.checkIfSpamShot()) {
+      console.log("shot spammed");
+      this.goalKeeper.move(this.selectedDirection);
+      this.ball.animate(this.selectedDirection);
+      this.isShooting = true;
+      this.#checkScore();
+      setTimeout(() => {
+        this.ball.create();
+        this.isShooting = false;
+      }, 2000);
+      return;
+    }
+    this.lastShot = this.selectedDirection;
     this.isShooting = true;
-    this.goalKeeper.move();
+    this.goalKeeper.guard();
 
     this.ball.animate(this.selectedDirection);
     console.log(this.ball);
@@ -110,6 +128,11 @@ class Game {
       this.isShooting = false;
     }, 2000);
     this.selectedDirection = "center";
+  }
+
+  checkIfSpamShot() {
+    if (this.sameShots >= 3) return true;
+    else return false;
   }
 
   goalMessage() {
