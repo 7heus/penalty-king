@@ -4,6 +4,7 @@ class Orb {
     this.width = 60;
     this.height = 60;
   }
+  #interval;
 
   static timesClicked = 0;
   create() {
@@ -17,6 +18,15 @@ class Orb {
     orb.appendChild(timer);
 
     this.gameScreen.appendChild(orb);
+    return orb;
+  }
+
+  startCountdown(s) {
+    clearInterval(this.#interval);
+    const timer = document.getElementById("timer");
+    timer.style.animation = "none";
+    timer.offsetHeight;
+    timer.style.animation = `shrink-border ${s}s linear`;
   }
 
   move() {
@@ -27,5 +37,7 @@ class Orb {
 
     orb.style.left = `${orbX}px`;
     orb.style.top = `${orbY}px`;
+
+    this.startCountdown(1);
   }
 }
