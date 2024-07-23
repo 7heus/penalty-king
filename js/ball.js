@@ -73,6 +73,29 @@ class Ball {
     });
   }
 
+  createGif() {
+    const ball = document.querySelector(".football");
+    const ballTop = parseInt(
+      ball.style.top.slice(0, ball.style.top.length - 2)
+    );
+    const ballLeft = parseInt(
+      ball.style.left.slice(0, ball.style.left.length - 2)
+    );
+    const gif = document.createElement("img");
+    gif.setAttribute("src", "./images/smaller-unscreen.gif");
+    gif.setAttribute("id", "gif");
+    gif.style.top = `${ballTop - 10}px`;
+    gif.style.left = `${ballLeft - 250}px`;
+    gif.style.scale = "300%";
+    gif.style.position = "absolute";
+
+    this.gameScreen.appendChild(gif);
+
+    setTimeout(() => {
+      gif.remove();
+    }, 2000);
+  }
+
   animate(pos) {
     const ball = document.querySelector(".football");
     let interval;

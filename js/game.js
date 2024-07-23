@@ -109,34 +109,38 @@ class Game {
   shoot() {
     if (this.isShooting) return;
     if (this.lastShot == this.selectedDirection) this.sameShots++;
+    this.ball.createGif();
+    this.isShooting = true;
     console.log(this.sameShots);
-    if (this.certainGuard == true) {
-      console.log("certainGuard");
-      this.goalKeeper.move(this.selectedDirection);
-      this.ball.animate(this.selectedDirection);
+    setTimeout(() => {
+      if (this.certainGuard == true) {
+        console.log("certainGuard");
+        this.goalKeeper.move(this.selectedDirection);
+        this.ball.animate(this.selectedDirection);
+        this.isShooting = true;
+        this.#checkScore();
+        setTimeout(() => {
+          this.ball.create();
+          this.isShooting = false;
+        }, 2000);
+        this.selectedDirection = "center";
+        return;
+      }
+      this.checkIfSpamShot();
+      this.lastShot = this.selectedDirection;
       this.isShooting = true;
+      this.goalKeeper.guard();
+
+      this.ball.animate(this.selectedDirection);
+      console.log(this.ball);
+
       this.#checkScore();
       setTimeout(() => {
         this.ball.create();
         this.isShooting = false;
       }, 2000);
       this.selectedDirection = "center";
-      return;
-    }
-    this.checkIfSpamShot();
-    this.lastShot = this.selectedDirection;
-    this.isShooting = true;
-    this.goalKeeper.guard();
-
-    this.ball.animate(this.selectedDirection);
-    console.log(this.ball);
-
-    this.#checkScore();
-    setTimeout(() => {
-      this.ball.create();
-      this.isShooting = false;
-    }, 2000);
-    this.selectedDirection = "center";
+    }, 1800);
   }
 
   checkIfSpamShot() {
