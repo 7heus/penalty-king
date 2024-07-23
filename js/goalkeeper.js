@@ -22,7 +22,6 @@ class GoalKeeper {
   }
 
   guard() {
-    const goalKeeper = document.querySelector(".goalkeeper");
     const possibleMoves = [
       "center",
       "left",
