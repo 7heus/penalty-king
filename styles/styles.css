@@ -137,6 +137,58 @@ body {
   transition: left 0.5s ease;
 }
 
+#scoreboard {
+  background-color: #000000;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 10px;
+  margin: 10px;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  box-sizing: content-box;
+  z-index: 99999;
+  justify-content: center;
+}
+
+.score-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  background-color: whitesmoke;
+}
+
+.green-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  background-color: green;
+}
+
+.red-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  background-color: red;
+}
+
 body button {
   font-size: 30px;
   background-color: #00872d;

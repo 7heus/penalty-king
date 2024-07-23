@@ -1,19 +1,26 @@
 class Scoreboard {
   constructor() {
-    this.attemptsId = document.getElementById("attempts-counter");
     this.scoresId = document.getElementById("score-counter");
+    this.scoreboardId = document.getElementById("scoreboard");
   }
 
   init(score, attempts) {
-    this.scoresId.innerHTML = `SCORE: ${score * 100}`;
-    this.attemptsId.innerHTML = `ATTEMPTS: ${attempts}`;
+    for (let i = 0; i < attempts; i++) {
+      const scoreCircle = document.createElement("div");
+      scoreCircle.setAttribute("class", "score-circle");
+
+      this.scoreboardId.appendChild(scoreCircle);
+    }
   }
 
-  setScore(score) {
-    this.scoresId.innerHTML = `SCORE: ${score * 100}`;
-  }
-
-  setAttempts(attempts) {
-    this.attemptsId.innerHTML = `ATTEMPTS: ${attempts}`;
+  setAttempts(bool) {
+    const circle = document.querySelector(".score-circle");
+    if (!bool) {
+      circle.classList.remove("score-circle");
+      circle.classList.add("red-circle");
+    } else {
+      circle.classList.remove("score-circle");
+      circle.classList.add("green-circle");
+    }
   }
 }
