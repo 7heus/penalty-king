@@ -15,10 +15,6 @@ body {
   justify-content: center;
 }
 
-.goalkeeper {
-  transition: left 0.5s ease;
-}
-
 #penalties-scoreboard {
   background-color: rgba(255, 255, 255, 0.5);
   display: flex;
@@ -135,6 +131,10 @@ body {
 
 .arrows-img {
   width: 750px;
+}
+
+.goalkeeper {
+  transition: left 0.5s ease;
 }
 
 body button {

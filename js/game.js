@@ -6,6 +6,7 @@ class Game {
     this.scoreCounter = document.querySelector("#score-counter");
     this.gameIntro = document.getElementById("game-intro");
     this.gameEnd = document.getElementById("game-end");
+    this.gameContainer = document.getElementById("game-container");
 
     this.goalKeeper = new GoalKeeper(
       this.gameScreen,
