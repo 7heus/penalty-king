@@ -16,8 +16,8 @@ class Game {
     this.height = 800;
     this.width = 1440;
     this.selectedDirection = "center";
-    this.attempts = 5;
-    this.score = 0;
+    this.totalAttempts = 5;
+    this.attempts = this.totalAttempts;
     this.isShooting = false;
     this.scoreboard = new Scoreboard();
     this.lastShot = "center";
@@ -42,6 +42,13 @@ class Game {
   endGame() {
     this.gameScreen.style.display = "none";
     this.gameEnd.style.display = "block";
+    const endCounter = document.getElementById("end-counter");
+    const endMsg = document.getElementById("endMessage");
+    const scored = [...document.querySelectorAll(".green-circle")].length;
+    const missed = [...document.querySelectorAll(".red-circle")].length;
+    if (scored > missed) endMsg.innerHTML = "You Won!";
+    else endMsg.innerHTML = "You Lost!";
+    endCounter.innerHTML = `Scored ${scored} out of ${this.totalAttempts} attempts.`;
   }
 
   #checkScore() {
@@ -76,7 +83,6 @@ class Game {
       }, 500);
       console.log(this.attempts);
     } else {
-      this.score++;
       setTimeout(() => {
         this.scoreboard.setAttempts(true);
         this.goalMessage();
