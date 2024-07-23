@@ -22,17 +22,7 @@ class GoalKeeper {
   }
 
   guard() {
-    const possibleMoves = [
-      "center",
-      "left",
-      "right",
-      "center",
-      "left",
-      "right",
-      "center",
-      "left",
-      "right",
-    ];
+    const possibleMoves = ["center", "left", "right"];
 
     const rand = Math.floor(Math.random() * possibleMoves.length);
     let selectedMove = possibleMoves[rand];
