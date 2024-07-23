@@ -20,7 +20,7 @@ class Game {
     this.score = 0;
     this.isShooting = false;
     this.scoreboard = new Scoreboard();
-    this.lastShot = "";
+    this.lastShot = "center";
     this.sameShots = 0;
     this.certainGuard = false;
 
@@ -102,7 +102,8 @@ class Game {
 
   shoot() {
     if (this.isShooting) return;
-    if (this.lastShot === this.selectedDirection) this.sameShots++;
+    if (this.lastShot == this.selectedDirection) this.sameShots++;
+    console.log(this.sameShots);
     if (this.certainGuard == true) {
       console.log("certainGuard");
       this.goalKeeper.move(this.selectedDirection);
@@ -133,8 +134,8 @@ class Game {
   }
 
   checkIfSpamShot() {
-    if (this.certainGuard) return;
-    if (this.sameShots >= 3) this.certainGuard = true;
+    if (this.certainGuard === true) return;
+    if (this.sameShots >= 2) this.certainGuard = true;
     else this.certainGuard = false;
   }
 
