@@ -82,7 +82,7 @@ class Ball {
       ball.style.left.slice(0, ball.style.left.length - 2)
     );
     const gif = document.createElement("img");
-    gif.setAttribute("src", "./images/smaller-unscreen.gif");
+    gif.setAttribute("src", "./images/ronaldo.gif");
     gif.setAttribute("id", "gif");
     gif.style.top = `${ballTop - 10}px`;
     gif.style.left = `${ballLeft - 250}px`;
