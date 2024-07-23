@@ -42,14 +42,58 @@ class Game {
 
   #checkScore() {
     const goalKeeper = document.querySelector(".goalkeeper");
+    const leftArrow = document.getElementById("left");
+    const rightArrow = document.getElementById("right");
+    const centerArrow = document.getElementById("center");
     const ball = document.querySelector(".football");
-    if (goalKeeper.style.left == ball.style.left) {
+    if (goalKeeper.style.left == "465px" && leftArrow.style.opacity == "1") {
       this.attempts--;
       setTimeout(() => {
         this.missMessage();
       }, 500);
       setTimeout(() => {
         ball.remove();
+        this.ball.removeArrows();
+      }, 2000);
+      this.scoreboard.setAttempts(this.attempts);
+      if (this.attempts == 0) {
+        setTimeout(() => {
+          this.endGame();
+        }, 2000);
+        return;
+      }
+      console.log(this.attempts);
+    } else if (
+      goalKeeper.style.left == "665px" &&
+      centerArrow.style.opacity == "1"
+    ) {
+      this.attempts--;
+      setTimeout(() => {
+        this.missMessage();
+      }, 500);
+      setTimeout(() => {
+        ball.remove();
+        this.ball.removeArrows();
+      }, 2000);
+      this.scoreboard.setAttempts(this.attempts);
+      if (this.attempts == 0) {
+        setTimeout(() => {
+          this.endGame();
+        }, 2000);
+        return;
+      }
+      console.log(this.attempts);
+    } else if (
+      goalKeeper.style.left == "865px" &&
+      rightArrow.style.opacity == "1"
+    ) {
+      this.attempts--;
+      setTimeout(() => {
+        this.missMessage();
+      }, 500);
+      setTimeout(() => {
+        ball.remove();
+        this.ball.removeArrows();
       }, 2000);
       this.scoreboard.setAttempts(this.attempts);
       if (this.attempts == 0) {
@@ -64,6 +108,7 @@ class Game {
       this.scoreboard.setScore(this.score);
       setTimeout(() => {
         ball.remove();
+        this.ball.removeArrows();
       }, 2000);
       setTimeout(() => {
         this.goalMessage();

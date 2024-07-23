@@ -19,12 +19,58 @@ class Ball {
     ball.style.position = "absolute";
     ball.style.top = "650px";
     ball.style.left = "665px";
+    const imgLeft = document.createElement("img");
+    const imgRight = document.createElement("img");
+    const imgCenter = document.createElement("img");
+    const ballTop = parseInt(
+      ball.style.top.slice(0, ball.style.top.length - 2)
+    );
+    const ballLeft = parseInt(
+      ball.style.left.slice(0, ball.style.left.length - 2)
+    );
+    imgLeft.setAttribute("src", "./images/left.png");
+    imgLeft.setAttribute("id", "left");
+    imgLeft.setAttribute("class", "arrows");
+    imgLeft.style.width = "150px";
+    imgLeft.style.height = "150px";
+    imgLeft.style.position = "absolute";
+    imgLeft.style.opacity = "40%";
+    imgLeft.style.top = `${ballTop - 50}px`;
+    imgLeft.style.left = `${ballLeft - 70}px`;
+
+    imgRight.setAttribute("src", "./images/right.png");
+    imgRight.setAttribute("id", "right");
+    imgRight.setAttribute("class", "arrows");
+    imgRight.style.width = "150px";
+    imgRight.style.height = "150px";
+    imgRight.style.position = "absolute";
+    imgRight.style.opacity = "40%";
+    imgRight.style.top = `${ballTop - 50}px`;
+    imgRight.style.left = `${ballLeft + 50}px`;
+
+    imgCenter.setAttribute("src", "./images/front.png");
+    imgCenter.setAttribute("id", "center");
+    imgCenter.setAttribute("class", "arrows");
+    imgCenter.style.width = "150px";
+    imgCenter.style.height = "150px";
+    imgCenter.style.position = "absolute";
+    imgCenter.style.opacity = "100%";
+    imgCenter.style.top = `${ballTop - 100}px`;
+    imgCenter.style.left = `${ballLeft - 20}px`;
+
+    this.gameScreen.appendChild(imgLeft);
+    this.gameScreen.appendChild(imgRight);
+    this.gameScreen.appendChild(imgCenter);
 
     this.gameScreen.appendChild(ball);
   }
 
-  removeBall(ball) {
-    ball.remove();
+  removeArrows() {
+    const arrows = [...document.querySelectorAll(".arrows")];
+    console.log(arrows);
+    arrows.forEach((x) => {
+      x.remove();
+    });
   }
 
   animate(pos) {
@@ -49,17 +95,24 @@ class Ball {
   }
 
   move(selectedDirection) {
-    const ball = document.querySelector(".football");
+    const left = document.getElementById("left");
+    const right = document.getElementById("right");
+    const center = document.getElementById("center");
     switch (selectedDirection) {
       case "center":
-        ball.style.left = "665px";
-        this.animate("center");
+        center.style.opacity = "100%";
+        left.style.opacity = "40%";
+        right.style.opacity = "40%";
         break;
       case "left":
-        ball.style.left = "465px";
+        center.style.opacity = "40%";
+        left.style.opacity = "100%";
+        right.style.opacity = "40%";
         break;
       case "right":
-        ball.style.left = "865px";
+        center.style.opacity = "40%";
+        left.style.opacity = "40%";
+        right.style.opacity = "100%";
         break;
     }
   }
