@@ -89,3 +89,18 @@ body {
     border-width: 0px;
   }
 }
+
+#restart-button {
+  font-size: 1.5em;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background: #61dafb;
+  color: #20232a;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#restart-button:hover {
+  background: #21a1f1;
+}

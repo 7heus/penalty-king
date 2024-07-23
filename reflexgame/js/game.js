@@ -6,6 +6,7 @@ class Game {
     this.endScreen = document.getElementById("end-screen");
     this.timesClicked = 0;
     this.timeRunning = 60000;
+    this.timeHovered = 0;
     this.timer;
 
     this.interval;
@@ -20,6 +21,12 @@ class Game {
       this.timesClicked++;
       console.log(this.timesClicked);
     });
+    const rect = orb.getBoundingClientRect();
+    orb.addEventListener("mouseover", (e) => {
+      this.timeHovered += 1;
+      console.log(this.timeHovered);
+    });
+    console.log(this.timeHovered);
     this.interval = setInterval(() => {
       this.orb.move();
     }, 1000);
@@ -33,6 +40,9 @@ class Game {
 
   endGame() {
     clearInterval(timer);
+    const endScore = document.getElementById("end-score");
+    const score = (this.timesClicked + this.timeHovered) * 100;
+    endScore.innerHTML = `Times clicked: ${this.timesClicked} Times hovered: ${this.timeHovered} Total score: ${score}`;
 
     this.gameContainer.style.display = "none";
     this.endScreen.style.display = "block";
