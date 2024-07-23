@@ -13,6 +13,22 @@ body {
   padding: 20px 0px;
   justify-content: center;
 }
+.football {
+  transition: left 1s ease, top 1s ease;
+  animation: shoot 1s ease-out forwards;
+}
+@keyframes shoot {
+  0% {
+    bottom: 20px;
+    left: calc(50% - 25px); /* Center horizontally */
+    transform: translateY(0) rotate(0deg); /* Start with no rotation */
+  }
+  100% {
+    bottom: 330%;
+    left: 30%;
+    transform: translateY(-330%) rotate(400deg); /* Move and spin */
+  }
+}
 
 #penalties-scoreboard {
   background-color: rgba(255, 255, 255, 0.5);

@@ -27,11 +27,25 @@ class Ball {
     ball.remove();
   }
 
+  animate(pos) {
+    let interval;
+    let maxTimeMs = 1000;
+    let deg = 0;
+
+    if (pos === "center") {
+      interval = setInterval(() => {
+        if (maxTimeMs === 0) clearInterval(interval);
+        maxTimeMs -= 50;
+      }, 50);
+    }
+  }
+
   move(selectedDirection) {
     const ball = document.querySelector(".football");
     switch (selectedDirection) {
       case "center":
         ball.style.left = "665px";
+        this.animate("center");
         break;
       case "left":
         ball.style.left = "465px";
