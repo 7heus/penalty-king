@@ -28,14 +28,19 @@ class Ball {
   }
 
   animate(pos) {
+    const ball = document.querySelector(".football");
     let interval;
     let maxTimeMs = 1000;
     let deg = 0;
+    const maxTop = 650;
 
     if (pos === "center") {
       interval = setInterval(() => {
         if (maxTimeMs === 0) clearInterval(interval);
         maxTimeMs -= 50;
+        const currentTop = parseInt(
+          ball.style.top.slice(0, ball.style.top.length - 2)
+        );
       }, 50);
     }
   }
