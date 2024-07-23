@@ -5,7 +5,7 @@ class Game {
     this.introScreen = document.getElementById("intro-screen");
     this.endScreen = document.getElementById("end-screen");
     this.timesClicked = 0;
-    this.timeRunning = 60000;
+    this.timeRunning = 10000;
     this.timeHovered = 0;
     this.timer;
 
