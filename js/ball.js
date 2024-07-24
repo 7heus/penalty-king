@@ -84,7 +84,7 @@ class Ball {
     const gif = document.createElement("img");
     gif.setAttribute("src", "./images/ronaldo.gif");
     gif.setAttribute("id", "gif");
-    gif.style.top = `${ballTop - 10}px`;
+    gif.style.top = `${ballTop - 100}px`;
     gif.style.left = `${ballLeft - 250}px`;
     gif.style.scale = "300%";
     gif.style.position = "absolute";
@@ -93,7 +93,7 @@ class Ball {
 
     setTimeout(() => {
       gif.remove();
-    }, 2000);
+    }, 3000);
   }
 
   animate(pos) {

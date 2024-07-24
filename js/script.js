@@ -18,6 +18,7 @@ window.onload = function () {
     const key = event.key;
     const possibleKeys = ["ArrowUp", "ArrowLeft", "ArrowRight", " "];
     if (possibleKeys.includes(key)) {
+      if (game.isShooting) return;
       switch (key) {
         case " ":
           game.shoot();

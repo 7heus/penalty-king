@@ -31,6 +31,15 @@ class Game {
     this.scoreboard.init(this.score, this.attempts);
     this.gameScreen.style.width = `${this.width}px`;
     this.gameScreen.style.height = `${this.height}px`;
+    const ambience = document.createElement("audio");
+    ambience.style.display = "none";
+    ambience.setAttribute("id", "ambience");
+    ambience.setAttribute("control", "none");
+    ambience.setAttribute("loop", "loop");
+    ambience.setAttribute("preload", "auto");
+    ambience.setAttribute("src", "./images/ambience.wav");
+    this.gameScreen.appendChild(ambience);
+    ambience.play();
 
     this.gameIntro.style.display = "none";
     this.gameScreen.style.display = "block";
@@ -42,6 +51,8 @@ class Game {
   endGame() {
     this.gameScreen.style.display = "none";
     this.gameEnd.style.display = "block";
+    const ambience = document.getElementById("ambience");
+    ambience.remove();
     const endCounter = document.getElementById("end-counter");
     const endMsg = document.getElementById("endMessage");
     const scored = [...document.querySelectorAll(".green-circle")].length;
@@ -49,6 +60,19 @@ class Game {
     if (scored > missed) endMsg.innerHTML = "You Won!";
     else endMsg.innerHTML = "You Lost!";
     endCounter.innerHTML = `Scored ${scored} out of ${this.totalAttempts} attempts.`;
+  }
+
+  async createSound(src) {
+    const sound = document.createElement("audio");
+    sound.setAttribute("id", "sound");
+    sound.setAttribute("control", "none");
+    sound.setAttribute("preload", "auto");
+    sound.style.display = "none";
+    sound.setAttribute("src", src);
+    sound.load();
+    this.gameScreen.appendChild(sound);
+    sound.currentTime = 0;
+    await sound.play();
   }
 
   #checkScore() {
@@ -114,28 +138,35 @@ class Game {
     console.log(this.sameShots);
     setTimeout(() => {
       if (this.certainGuard == true) {
+        this.createSound("./images/ball-kick.wav");
         console.log("certainGuard");
         this.goalKeeper.move(this.selectedDirection);
         this.ball.animate(this.selectedDirection);
+        let sound = document.getElementById("sound");
         this.isShooting = true;
         this.#checkScore();
         setTimeout(() => {
           this.ball.create();
+          sound.remove();
           this.isShooting = false;
         }, 2000);
         this.selectedDirection = "center";
         return;
       }
+      this.createSound("./images/ball-kick.wav");
       this.checkIfSpamShot();
+
       this.lastShot = this.selectedDirection;
       this.isShooting = true;
       this.goalKeeper.guard();
 
       this.ball.animate(this.selectedDirection);
+      let sound = document.getElementById("sound");
       console.log(this.ball);
 
       this.#checkScore();
       setTimeout(() => {
+        sound.remove();
         this.ball.create();
         this.isShooting = false;
       }, 2000);
