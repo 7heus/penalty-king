@@ -90,6 +90,34 @@ body {
   }
 }
 
+#scoreboard {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 70px;
+  border: 2px;
+  border-color: #21a1f1;
+  border-style: solid;
+  border-radius: 10%;
+  position: absolute;
+  left: 750px;
+  top: 850px;
+  visibility: visible;
+  width: 400px;
+  height: 80px;
+  background-color: #20232a;
+}
+
+#time-running {
+  position: absolute;
+  justify-self: center;
+  top: 20px;
+}
+
+#scoreboard p {
+  align-self: center;
+}
+
 #restart-button {
   font-size: 1.5em;
   padding: 10px 20px;

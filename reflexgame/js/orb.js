@@ -12,12 +12,17 @@ class Orb {
     const timer = document.createElement("div");
     orb.setAttribute("id", "orb");
     orb.style.height = `${this.height}px`;
+    orb.style.left = `500px`;
+    orb.style.top = `500px`;
     orb.style.width = `${this.width}px`;
     orb.style.position = "absolute";
+
     timer.setAttribute("id", "timer");
     orb.appendChild(timer);
 
     this.gameScreen.appendChild(orb);
+    const gameRect = this.gameScreen.getBoundingClientRect();
+
     return orb;
   }
 
@@ -27,6 +32,12 @@ class Orb {
     timer.style.animation = "none";
     timer.offsetHeight;
     timer.style.animation = `shrink-border ${s}s linear`;
+  }
+
+  remove() {
+    const orb = document.getElementById("orb");
+    orb.remove();
+    clearInterval(this.#interval);
   }
 
   move() {
