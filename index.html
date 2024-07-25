@@ -10,16 +10,27 @@
   <body>
     <main>
       <!-- #game-intro is initially shown on the game start screen -->
+      <!-- #game-intro is initially shown on the game start screen -->
       <div id="game-intro">
-        <img src="./images/game_logo.webp" alt="" class="logo-img" />
-        <br />
-        <button id="start-button">Let's KICKOUT!!!</button>
-        <p>
-          Use the left, right and up arrows to control the direction of the
-          shooter and ball direction.
-        </p>
-        <p>Use spacebar for shooting the ball</p>
-        <img src="./images/arrow_space_keys.png" alt="" class="arrows-img" />
+        <img src="./images/background.jpg" />
+        <button
+          id="start-button"
+          style="
+            background: linear-gradient(45deg, yellow, orange);
+            padding: 10px 20px;
+            font-size: 80px;
+            border: none;
+            border-radius: 50px;
+            color: white;
+            cursor: pointer;
+            position: absolute;
+            bottom: 60px; /* Adjust as needed */
+            left: 50%;
+            transform: translateX(-50%);
+          "
+        >
+          START
+        </button>
       </div>
 
       <div id="game-container">

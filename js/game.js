@@ -52,13 +52,19 @@ class Game {
     this.gameScreen.style.display = "none";
     this.gameEnd.style.display = "block";
     const ambience = document.getElementById("ambience");
+    const endImg = document.querySelector(".logo-img");
     ambience.remove();
     const endCounter = document.getElementById("end-counter");
     const endMsg = document.getElementById("endMessage");
     const scored = [...document.querySelectorAll(".green-circle")].length;
     const missed = [...document.querySelectorAll(".red-circle")].length;
-    if (scored > missed) endMsg.innerHTML = "You Won!";
-    else endMsg.innerHTML = "You Lost!";
+    if (scored > missed) {
+      endMsg.innerHTML = "You Won!";
+      endImg.src = "./images/win-gif.gif";
+    } else {
+      endMsg.innerHTML = "You Lost!";
+      endImg.src = "./images/lose-gif.gif";
+    }
     endCounter.innerHTML = `Scored ${scored} out of ${this.totalAttempts} attempts.`;
   }
 
