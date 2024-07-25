@@ -85,7 +85,6 @@ class Game {
     if (goalKeeper.style.left == "465px" && leftArrow.style.opacity == "1") {
       setTimeout(() => {
         this.missMessage();
-        this.scoreboard.setAttempts(false);
       }, 500);
       console.log(this.attempts);
     } else if (
@@ -94,7 +93,6 @@ class Game {
     ) {
       setTimeout(() => {
         this.missMessage();
-        this.scoreboard.setAttempts(false);
       }, 500);
       console.log(this.attempts);
     } else if (
@@ -103,12 +101,10 @@ class Game {
     ) {
       setTimeout(() => {
         this.missMessage();
-        this.scoreboard.setAttempts(false);
       }, 500);
       console.log(this.attempts);
     } else {
       setTimeout(() => {
-        this.scoreboard.setAttempts(true);
         this.goalMessage();
       }, 500);
       console.log("score");
@@ -185,6 +181,7 @@ class Game {
     this.gameScreen.appendChild(element);
     element.style.display = "block";
     setTimeout(() => {
+      this.scoreboard.setAttempts(true);
       element.style.display = "none";
     }, 1500);
   }
@@ -194,6 +191,7 @@ class Game {
     this.gameScreen.appendChild(element);
     element.style.display = "block";
     setTimeout(() => {
+      this.scoreboard.setAttempts(false);
       element.style.display = "none";
     }, 1500);
   }
