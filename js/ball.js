@@ -92,6 +92,7 @@ class Ball {
     this.gameScreen.appendChild(gif);
 
     setTimeout(() => {
+      gif.src = "";
       gif.remove();
     }, 3000);
   }
