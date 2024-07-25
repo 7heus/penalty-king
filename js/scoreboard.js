@@ -1,7 +1,10 @@
+// Scoreboard class to handle the display score and attempts
+
+
 class Scoreboard {
   constructor() {
-    this.scoresId = document.getElementById("score-counter");
-    this.scoreboardId = document.getElementById("scoreboard");
+    this.scoresId = document.getElementById("score-counter"); // Reference to element "score-counter"
+    this.scoreboardId = document.getElementById("scoreboard"); // Reference to element "scoreboard"
   }
 
   init(score, attempts) {
