@@ -1,3 +1,7 @@
+/* Game class was designed to manage the overall logic of the game.
+It cordinates various aspects on the game, its basically tie all componentes game and provides the primary interface for game interaction */
+
+
 class Game {
   constructor() {
     this.gameScreen = document.getElementById("game-screen");
